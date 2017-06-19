@@ -34,7 +34,7 @@ class Controller:
         commands = list(*args)
         if commands[0] in self.commands_generate:
             self.filter_action_args(commands[1:])
-        elif commands[0] in commands_help:
+        elif commands[0] in self.commands_help:
             print(Menssages.help_gun)
             sys.exit(0)
 
@@ -51,7 +51,7 @@ class Controller:
         commands = list(*args)
         try: app = commands[0]
         except IndexError: sys.exit('Especifique a APP para gera o crud')
-    	with open('%s/%s/views.py'%(self.path, app), 'w') as f:
-    		if len(commands)>=2: f.write(SourceView.get_source_all_class_view(commands[1]))
-    		else: f.write(SourceView.get_source_all_class_view())
-    		f.close()
+        with open('%s/%s/views.py'%(self.path, app), 'w') as f:
+            if len(commands)>=2: f.write(SourceView.get_source_all_class_view(commands[1]))
+            else: f.write(SourceView.get_source_all_class_view())
+            f.close()
