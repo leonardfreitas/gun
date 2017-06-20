@@ -1,5 +1,5 @@
 
-class Menssages:
+class Messages:
 
     default = """
 BEM VINDO AO GUN, um arma poderosa para o Django
